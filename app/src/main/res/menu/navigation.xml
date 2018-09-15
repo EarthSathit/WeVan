@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_van"
+        android:title="@string/title_round" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_history1"
+        android:title="@string/title_history" />
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_promotion"
+        android:title="@string/title_promotion" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/title_profile" />
+    <item
+        android:id="@+id/navigation_reserv"
+        android:icon="@drawable/ic_reserv"
+        android:title="@string/title_reserv" />
+
+</menu>

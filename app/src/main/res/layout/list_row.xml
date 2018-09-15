@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <LinearLayout
+        android:id="@+id/haircut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_list_rect"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <!--*****HAIR CUT********-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedrect"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <customfonts.MyTextView
+                android:id="@+id/tv_route"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="HAIR CUT"
+                android:textColor="@color/textsub"
+                android:textSize="@dimen/text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:layout_gravity="right"
+                        android:src="@drawable/clock" />
+                </FrameLayout>
+
+                <customfonts.MyTextView
+                    android:id="@+id/tv_time_route"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:gravity="right"
+                    android:text="30 mins"
+                    android:textColor="@color/textsub"
+                    android:textSize="@dimen/text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <customfonts.MyTextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Basic Hair Cut"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/text" />
+
+                <customfonts.MyTextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="$ 25"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/textsub" />
+
+                <customfonts.MyTextView
+                    android:id="@+id/tv_seat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="12"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/textsub" />
+
+                <customfonts.MyTextView
+                    android:id="@+id/tv_van_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:maxLines="2"
+                    android:text="Trimming, Split removal"
+                    android:textColor="@color/textsub"
+                    android:textSize="@dimen/textsub" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <customfonts.MyTextView
+                    android:id="@+id/i"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rect2"
+                    android:gravity="center"
+                    android:text="i"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/text" />
+
+                <customfonts.MyTextView
+                    android:id="@+id/tv_reserv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:background="@drawable/rect"
+                    android:gravity="center"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="19dp"
+                    android:paddingRight="19dp"
+                    android:paddingTop="6dp"
+                    android:text="จอง"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/text" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+<!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:background="@color/textsub"-->
+    <!--android:layout_marginLeft="16dp"-->
+    <!--android:layout_marginRight="16dp"-->
+    <!--&gt;-->
+
+<!--</View>-->
+
+</RelativeLayout>
