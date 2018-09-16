@@ -154,7 +154,7 @@ public class SettingFragment extends Fragment {
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("onResponse: ", "Success");
+                //Log.d("onResponse: ", "Success");
                 try {
                     List<ReservData> list = new ArrayList<>();
                     JSONObject jsonObject = new JSONObject(response);
@@ -184,7 +184,7 @@ public class SettingFragment extends Fragment {
                         dataReservAdapter.setClickListener(new DataReservAdapter.ItemClickListener() {
                             @Override
                             public void onClick(View view, int position) {
-
+                                toast("gfgfgf");
                             }
                         });
                     }
@@ -209,5 +209,9 @@ public class SettingFragment extends Fragment {
             }
         };
         requestQueue.add(request);
+    }
+
+    public void toast(String msg)  {
+        Toast.makeText(getContext(), msg,Toast.LENGTH_LONG).show();
     }
 }

@@ -6,15 +6,31 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.SyncStateContract;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Data.ReservData;
 import th.ac.kru.wevan.R;
@@ -46,7 +62,7 @@ public class DataReservAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DataReservAdapter.MyViewHolder myViewHolder = (DataReservAdapter.MyViewHolder) holder;
-        ReservData reservData = mList.get(position);
+        final ReservData reservData = mList.get(position);
         myViewHolder.tvTravelDate.setText(reservData.getTravel_date());
         myViewHolder.tvRoute.setText(reservData.getRoute());
         myViewHolder.tvTime.setText("รอบ : " + reservData.getTime());
@@ -104,7 +120,8 @@ public class DataReservAdapter extends RecyclerView.Adapter{
                         .setPositiveButton("ยกเลิก", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Log.d("Cancel Reserv", "Cancel Success");
+                                Log.d("Cancel Reserv", reservData.getId_card());
+                                cancelReserv(reservData.getRe_id());
                                 dialogInterface.dismiss();
                                 //viewHolder.tvReserv.setEnabled(false);
                             }
@@ -161,7 +178,37 @@ public class DataReservAdapter extends RecyclerView.Adapter{
         }
     }
 
-    public void cancelReserv() {
+    public void cancelReserv(final String re_id) {
+        String url = "http://wssathit.codehansa.com/manage_reserv.php";
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("onResponse: ", "Success");
+                Toast toast = Toast.makeText(mContext, "ยกเลิกการจองเรียบร้อย",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("onErrorResponse", error.getMessage());
+            }
+        })
+        {
+            protected Map<String, String> getParams(){
+                Map<String, String> param = new HashMap<>();
+                param.put("cmd", "cancel_reserv");
+                //param.put("phone", phone);
+                param.put("re_id", re_id);
+
+                return param;
+            }
+        };
+        requestQueue.add(request);
+    }
+
+    public void showT() {
 
     }
 }

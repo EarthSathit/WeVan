@@ -160,7 +160,7 @@ public class HistoryReservFragment extends Fragment {
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("onResponse: ", "Success");
+                //Log.d("onResponse: ", "Success");
                 try {
                     List<ReservData> list = new ArrayList<>();
                     JSONObject jsonObject = new JSONObject(response);

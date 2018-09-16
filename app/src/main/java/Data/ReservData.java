@@ -5,15 +5,15 @@ package Data;
  */
 
 public class ReservData {
-    private String re_id, round_id, id_card, reserv_date, travel_date, pm_status, pm_method,
+    private String re_id, round_id, phone, reserv_date, travel_date, pm_status, pm_method,
                     route, time, price, van_id;
 
-    public ReservData(String prmRe_ID, String prmRoundID, String prmIDCard, String prmReservDate,
+    public ReservData(String prmRe_ID, String prmRoundID, String prmPhone, String prmReservDate,
                       String prmTravelDate, String prmPMStatus, String prmPMMethod,
                      String prmRoute, String prmTime, String prmPrice, String prmVanID) {
         this.re_id = prmRe_ID;
         this.round_id = prmRoundID;
-        this.id_card = prmIDCard;
+        this.phone = prmPhone;
         this.reserv_date = prmReservDate;
         this.travel_date = prmTravelDate;
         this.pm_status = prmPMStatus;
@@ -26,7 +26,7 @@ public class ReservData {
 
     public String getRe_id() {return re_id;}
     public String getRound_id() { return round_id; }
-    public String getId_card() { return id_card; }
+    public String getId_card() { return phone; }
     public String getReserv_date() { return reserv_date; }
     public String getTravel_date(){ return travel_date; }
     public String getPm_status() { return pm_status; }
