@@ -156,7 +156,7 @@ public class SettingFragment extends Fragment {
             public void onResponse(String response) {
                 //Log.d("onResponse: ", "Success");
                 try {
-                    List<ReservData> list = new ArrayList<>();
+                    final List<ReservData> list = new ArrayList<>();
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("rs");
                     if (jsonArray != null){
@@ -184,7 +184,8 @@ public class SettingFragment extends Fragment {
                         dataReservAdapter.setClickListener(new DataReservAdapter.ItemClickListener() {
                             @Override
                             public void onClick(View view, int position) {
-                                toast("gfgfgf");
+                                ReservData reservData = list.get(position);
+                                toast(String.valueOf(reservData.getId_card()));
                             }
                         });
                     }

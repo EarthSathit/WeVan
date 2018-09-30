@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#ff4081</color>
-    <color name="cityname">#5A5A5A</color>
+    <color name="cityname">#5a5a5a</color>
     <color name="date">#5A5A5A</color>
     <color name="categary">#5a5a5a</color>
     <color name="state">#A0A0A0</color>
@@ -12,6 +12,6 @@
     <color name="text">#3b3b3b</color>
     <color name="textsub">#aaaaaa</color>
     <color name="background">#f5f7fa</color>
-    <color name="textcolor">#4c6086</color>
+    <color name="textcolor">#4966ae</color>
     <color name="aaa">#a7afbe</color>
 </resources>

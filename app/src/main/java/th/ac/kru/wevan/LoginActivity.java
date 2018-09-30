@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
         StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("onResponse", response);
+                //Log.d("onResponse", response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("user");
@@ -119,9 +119,8 @@ public class LoginActivity extends AppCompatActivity {
                          shType = sharedPreferences.getString("SESSION_USER_TYPE", "");
                          shEmail = sharedPreferences.getString("SESSION_EMAIL", "");
                          shPhone = sharedPreferences.getString("SESSION_PHONE", "");
-
+                         showToast("กำลังเข้าสู่ระบบ");
                         //showDialogSuccess("Information", "เข้าสู่ระบบสำเร็จ");
-                        showToast("เข้าสู่ระบบสำเร็จ");
                     }
                 } catch (JSONException e) {
                     showDialogFailed("Warning!", "เข้าสู่ระบบไม่สำเร็จ กรุณาเข้าสู่ระบบอีกครั้ง");

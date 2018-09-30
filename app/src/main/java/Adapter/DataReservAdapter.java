@@ -1,10 +1,15 @@
 package Adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
 import android.provider.SyncStateContract;
+import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +18,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +33,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import Data.ReservData;
+import th.ac.kru.wevan.ConfirmPayment;
 import th.ac.kru.wevan.R;
 
 /**
@@ -43,6 +51,8 @@ public class DataReservAdapter extends RecyclerView.Adapter{
     List<ReservData> mList;
     Context mContext;
     LayoutInflater mInflater;
+    private ImageView selectedImage;
+    private Bitmap currentImage;
 
     private static ItemClickListener clickListener;
 
@@ -87,13 +97,11 @@ public class DataReservAdapter extends RecyclerView.Adapter{
                         .setPositiveButton("ชำระเงิน", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                            /*    Intent intent = new Intent(getActivity(), GalleryActivity.class);
-                                Params params = new Params();
-                                params.setPickerLimit(3);
-                                params.setCaptureLimit(3);
-                                intent.putExtra(SyncStateContract.Constants.KEY_PARAMS, params);
-                                startActivityForResult(intent, SyncStateContract.Constants.TYPE_MULTI_PICKER); */
                                 Log.d("Patment Reserv", "payment success");
+                                //selectImage();
+                                Intent intent = new Intent(mContext, ConfirmPayment.class);
+                                intent.putExtra("re_id", reservData.getRe_id());
+                                mContext.startActivity(intent);
                                 //dialogInterface.dismiss();
                                 //viewHolder.tvReserv.setEnabled(false);
                             }
@@ -208,7 +216,23 @@ public class DataReservAdapter extends RecyclerView.Adapter{
         requestQueue.add(request);
     }
 
-    public void showT() {
+    public void selectImage() {
+        // invoke the image gallery using an implict intent.
+        Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
 
+        // where do we want to find the data?
+        File pictureDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        String pictureDirectoryPath = pictureDirectory.getPath();
+        // finally, get a URI representation
+        Uri data = Uri.parse(pictureDirectoryPath);
+
+        // set the data and type.  Get all image types.
+        photoPickerIntent.setDataAndType(data, "image/*");
+        ((Activity) mContext).startActivityForResult(photoPickerIntent, 1);
+        //saveImage(data.toString());
+    }
+
+    public void saveImage(String path) {
+        Toast.makeText(mContext, path, Toast.LENGTH_LONG).show();
     }
 }
