@@ -16,6 +16,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -161,6 +162,13 @@ public class LoginActivity extends AppCompatActivity {
     public void showToast(String msg){
         Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
+        LinearLayout toastContentView = (LinearLayout) toast.getView();
+        ImageView imageView = new ImageView(getApplicationContext());
+        imageView.setImageResource(R.drawable.loader3);
+        imageView.setMaxWidth(3);
+        imageView.setMaxHeight(3);
+        toastContentView.addView(imageView, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
         toast.show();
         Intent openApp = new Intent(LoginActivity.this, MainActivity.class);
         openApp.putExtra("id_card", shID);
