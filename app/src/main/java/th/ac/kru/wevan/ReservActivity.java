@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
@@ -61,7 +62,7 @@ import Data.MethodData;
 import Data.SeatData;
 import android.support.v4.app.Fragment;
 
-public class ReservActivity extends AppCompatActivity {
+public class ReservActivity extends AppCompatActivity implements ReservFragment.OnFragmentInteractionListener {
 
     TextView tvSubmit, tvCancel, tvReservPrice;
     Spinner spinSeat, spinMethod;
@@ -113,7 +114,7 @@ public class ReservActivity extends AppCompatActivity {
 
     public void initialValue(){
         tvSubmit = (TextView) findViewById(R.id.tv_submit);
-        tvCancel = (TextView) findViewById(R.id.tv_cancel);
+        // tvCancel = (TextView) findViewById(R.id.tv_cancel);
         tvReservPrice = (TextView) findViewById(R.id.tv_reserv_price);
         dateTravel = (DatePicker) findViewById(R.id.date_travel);
 
@@ -124,6 +125,13 @@ public class ReservActivity extends AppCompatActivity {
         phone = getIntent().getExtras().getString("phone");
 
         tvReservPrice.setText("300");
+
+        /*tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
 
         currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
@@ -216,6 +224,17 @@ public class ReservActivity extends AppCompatActivity {
         });
     }
 
+    private boolean loadFragment(Fragment fragment){
+        if(fragment != null){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_layout, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
+
     public void saveReserv(final String reID, final String round_id, final String phone,
                            final String reservDate, final String travelDate, final String pmMethod,
                            final String seat, final String price){
@@ -296,5 +315,10 @@ public class ReservActivity extends AppCompatActivity {
 
     public void toast(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

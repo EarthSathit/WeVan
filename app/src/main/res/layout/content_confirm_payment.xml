@@ -47,6 +47,24 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <customfonts.MyTextView_Roboto_Medium
+                    android:id="@+id/myTextView_Roboto_Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="เลขที่บัญชี : xxx-x-xxxxx-x" />
+
+                <customfonts.MyTextView_Roboto_Medium
+                    android:id="@+id/myTextView_Roboto_Medium2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ชื่อบัญชี : นาย สาธิต ศิวิลัยซ์" />
+
+                <customfonts.MyTextView_Roboto_Medium
+                    android:id="@+id/myTextView_Roboto_Medium4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ธนาคาร : กสิกรไทย" />
+
                 <TextView
                     android:id="@+id/path"
                     android:layout_width="match_parent"
