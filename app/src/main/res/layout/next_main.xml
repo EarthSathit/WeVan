@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="80dp"
-        android:layout_height="84dp"
+        android:layout_width="100dp"
+        android:layout_height="94dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="27dp"
-        android:text="SIGN UP"
+        android:text="ลงทะเบียน"
         android:textColor="#000000" />
 
     <FrameLayout
@@ -84,18 +84,6 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/google" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/fbicon" />
-
 
                 </LinearLayout>
 
@@ -108,13 +96,12 @@
 
     <ImageView
         android:id="@+id/next"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:src="@drawable/nex"
-        android:scaleType="fitXY"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
         android:layout_above="@+id/signUp"
-        android:layout_marginBottom="10dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/login2" />
 
     <customfonts.MyTextView_Roboto_Regular
         android:id="@+id/myTextView_Roboto_Regular"
@@ -123,7 +110,7 @@
         android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="ระบบจองตั๋วรถโดยสาร"
+        android:text="แอพพลิเคชันบริหารจัดการรถตู้โดยสารสาธารณะ"
         android:textSize="16sp" />
 
 </RelativeLayout>
