@@ -99,12 +99,12 @@ public class MainActivity3 extends AppCompatActivity {
         } else if (TextUtils.isDigitsOnly(last_name)) {
             edtLastName.setError("กรุณากรอกนามสกุลเป็นตัวอักษร");
             status = false;
-        } else if(TextUtils.isEmpty(email)){
+        } /*else if(TextUtils.isEmpty(email)){
             //isEmailValid(email);
             edtEmail.setError("กรุณากรอกอีเมล์ให้ถูกต้อง");
             edtEmail.setText(null);
             status = false;
-        }
+        } */
 
         if (status){
             saveRegister();
@@ -124,17 +124,27 @@ public class MainActivity3 extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(final String response) {
+                 String msg_alert = "";
                 Log.d("onResponse", response);
+                if(response.equals("success")) {
+                    msg_alert = "บันทึกข้อมูลเรียบร้อย";
+                } else {
+                    msg_alert = "มีข้อมูลผู้ใช้อยู่แล้ว กรุณาเข้าสู่ระบบ";
+                }
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
-                builder.setIcon(R.drawable.van1);
+                builder.setIcon(R.drawable.ic_info);
                 builder.setTitle("Information!");
-                builder.setMessage("บันทึกข้อมูลเรียบร้อย");
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                builder.setMessage(msg_alert);
+                builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         /*Intent openApp = new Intent(MainActivity3.this, MainActivity.class);
                         startActivity(openApp);*/
+                        if(!response.equals("success")) {
+                            Intent intent = new Intent(MainActivity3.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
                         dialogInterface.dismiss();
                     }
                 });
@@ -144,6 +154,20 @@ public class MainActivity3 extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
+                builder.setIcon(R.drawable.ic_info);
+                builder.setTitle("Information!");
+                builder.setMessage("มีข้อมูลผู้ใช้งานอยู่แล้ว กรุณาเเข้าสู่ระบบ");
+                builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        /*Intent openApp = new Intent(MainActivity3.this, MainActivity.class);
+                        startActivity(openApp);*/
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
                 String message = null;
                 if (error instanceof NetworkError) {
                     message = "NetworkError! Cannot connect to Internet...Please check your connection!";
