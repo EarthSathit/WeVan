@@ -85,7 +85,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:paddingLeft="170dp"
-                                android:src="@drawable/ic_right" />
+                                android:src="@android:drawable/ic_input_get" />
 
                         </LinearLayout>
 
@@ -229,7 +229,7 @@
                                 android:background="@drawable/rounded_button"
                                 android:gravity="center"
                                 android:padding="15dp"
-                                android:text="Next Step"
+                                android:text="จองที่นั่ง"
                                 android:textAllCaps="false"
                                 android:textColor="#ffffff" />
 
@@ -245,8 +245,9 @@
                                 android:background="@drawable/rounded_button2"
                                 android:gravity="center"
                                 android:padding="15dp"
-                                android:text="Back"
-                                android:textAllCaps="false" />
+                                android:text="กลับ"
+                                android:textAllCaps="false"
+                                android:textColor="@color/background" />
 
 
                         </LinearLayout>
@@ -268,7 +269,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="29dp"
-                    android:text="ยืนยันการจอง"
+                    android:text="รายละเอียดการจอง"
                     android:textSize="16sp" />
 
             </RelativeLayout>

@@ -21,7 +21,7 @@
                 android:background="#0000"
                 android:padding="10dp"
                 android:text="จำนวนการเดินทางของคุณ ="
-                android:textColor="#a2a1b8"
+                android:textColor="@color/categary"
                 android:textSize="16dp" />
 
             <customfonts.MyTextView_Roboto_Light
@@ -30,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="2" />
+                android:text="2"
+                android:textColor="@color/categary" />
         </LinearLayout>
 
         <Button
@@ -38,7 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="รับสิทธิ" />
+            android:background="@drawable/rect"
+            android:text="รับสิทธิ์"
+            android:textColor="@color/background" />
 
     </LinearLayout>
 

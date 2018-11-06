@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#00000000">
 
     <LinearLayout
@@ -23,7 +23,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/roundedrect"
+            android:background="@color/aaa"
             android:orientation="horizontal"
             android:padding="16dp">
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="HAIR CUT"
-                android:textColor="@color/textsub"
+                android:textColor="@color/background"
                 android:textSize="@dimen/text" />
 
             <LinearLayout
@@ -63,7 +63,7 @@
                     android:layout_weight="1.2"
                     android:gravity="right"
                     android:text="30 mins"
-                    android:textColor="@color/textsub"
+                    android:textColor="@color/background"
                     android:textSize="@dimen/text" />
             </LinearLayout>
         </LinearLayout>
@@ -113,7 +113,7 @@
                     android:layout_marginTop="6dp"
                     android:maxLines="2"
                     android:text="Trimming, Split removal"
-                    android:textColor="@color/textsub"
+                    android:textColor="@color/categary"
                     android:textSize="@dimen/textsub" />
 
             </LinearLayout>
@@ -148,8 +148,7 @@
     </LinearLayout>
 
 
-
-<!--<View-->
+    <!--<View-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="1dp"-->
     <!--android:layout_alignParentBottom="true"-->
@@ -158,6 +157,6 @@
     <!--android:layout_marginRight="16dp"-->
     <!--&gt;-->
 
-<!--</View>-->
+    <!--</View>-->
 
 </RelativeLayout>

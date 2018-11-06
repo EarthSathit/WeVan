@@ -192,7 +192,7 @@ public class SettingFragment extends Fragment {
                     }
 
                 } catch (JSONException e) {
-                    Toast toast = Toast.makeText(getContext(), "ไม่มีข้อมูลการจอง", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getContext(), "ไม่มีข้อมูลการจอง", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }

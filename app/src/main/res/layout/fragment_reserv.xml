@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="KRU"
+                android:text="หนุมานทัวร์สยาม จำกัด"
                 android:textColor="#fff"
                 android:textSize="21dp" />
 
@@ -49,7 +49,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="Have a nice trip "
+                android:text="ให้เราเป็นส่วนหนึ่งในการเดินทางของคุณ"
                 android:textColor="#ccffffff"
                 android:textSize="@dimen/text" />
 
@@ -72,7 +72,7 @@
             <LinearLayout
                 android:id="@+id/haircut"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="261dp"

@@ -64,6 +64,7 @@
                     android:hint="@string/txt_phone"
                     android:inputType="phone"
                     android:letterSpacing="0.1"
+                    android:maxLength="10"
                     android:textColorHint="#aeb0a5"
                     android:textSize="12dp" />
 

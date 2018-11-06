@@ -21,10 +21,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/aaa"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
@@ -37,7 +38,17 @@
                         android:layout_weight="1"
                         app:srcCompat="@drawable/ic_history" />
 
+                    <customfonts.MyTextView_Roboto_Light
+                        android:id="@+id/myTextView_Roboto_Light3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="วันที่เดินทาง"
+                        android:textColor="@color/background"
+                        android:textSize="16sp" />
                 </LinearLayout>
+
 
                 <customfonts.MyTextView_Roboto_Light
                     android:id="@+id/tv_travel_date"
@@ -47,6 +58,7 @@
                     android:layout_weight="1"
                     android:padding="7dp"
                     android:text="12/05/2561"
+                    android:textColor="@color/background"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -71,7 +83,8 @@
                     android:layout_weight="1"
                     android:gravity="left"
                     android:padding="5dp"
-                    android:text="กาญจนบุรี-หมอชิต" />
+                    android:text="กาญจนบุรี-หมอชิต"
+                    android:textColor="@color/cardview_dark_background" />
 
                 <customfonts.MyTextView_Roboto_Light
                     android:id="@+id/tv_time"
@@ -80,7 +93,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="08.00-09.00 น." />
+                    android:text="08.00-09.00 น."
+                    android:textColor="@color/cardview_dark_background" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,7 +110,8 @@
                     android:layout_weight="1"
                     android:gravity="left|center"
                     android:padding="5dp"
-                    android:text="140.-" />
+                    android:text="140.-"
+                    android:textColor="@color/cardview_dark_background" />
 
                 <customfonts.MyTextView_Roboto_Light
                     android:id="@+id/tv_van_id"
@@ -105,8 +120,27 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="กก12343" />
+                    android:text="กก12343"
+                    android:textColor="@color/cardview_dark_background" />
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <customfonts.MyTextView_Roboto_Light
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center"
+                android:padding="5dp"
+                android:text="สถานะ : รอยืนยันการชำระเงิน"
+                android:textColor="@color/cardview_dark_background" />
+
+        </LinearLayout>
 
         </LinearLayout>
 

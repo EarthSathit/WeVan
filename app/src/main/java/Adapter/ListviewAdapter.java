@@ -106,14 +106,13 @@ public class ListviewAdapter extends BaseAdapter {
                 public void onClick(View view) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                     builder
-                            .setIcon(R.drawable.van1)
-                            .setTitle("Warning")
+                            .setIcon(R.drawable.ic_info)
+                            .setTitle("แจ้งเตือน")
                             .setMessage("ไม่สามารถจองได้ เนื่องจากที่นั่งเต็มแล้ว กรุณาจองรอบถัดไป")
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                    dialogInterface.dismiss();
-                                   //viewHolder.tvReserv.setEnabled(false);
                                 }
                             });
                     AlertDialog dialog = builder.create();

@@ -1,8 +1,10 @@
 package Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,13 +46,23 @@ public class ReservAdapter extends RecyclerView.Adapter{
         myViewHolder.tvTime.setText("รอบ : " + reservData.getTime());
         myViewHolder.tvPrice.setText("ราตา : " + reservData.getPrice() + ".-");
         myViewHolder.tvVanID.setText("ทะเบียนรถ : " + reservData.getVan_id());
+        String status;
+        char pm_status = reservData.getPm_status().charAt(0);
+        if(pm_status == '1'){
+            status = "รอยืนยันการชำระเงิน";
+            myViewHolder.tvStatus.setTextColor(Color.RED);
+        } else {
+            status = "ชำระเงินเรียบร้อย";
+            myViewHolder.tvStatus.setTextColor(Color.GREEN);
+        }
+        myViewHolder.tvStatus.setText("สถานะ : " + status);
     }
 
     @Override
     public int getItemCount() { return mList.size(); }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tvTravelDate, tvRoute, tvTime, tvPrice, tvVanID;
+        TextView tvTravelDate, tvRoute, tvTime, tvPrice, tvVanID, tvStatus;
         CardView cvReserv;
 
         public MyViewHolder(View itemView){
@@ -62,6 +74,7 @@ public class ReservAdapter extends RecyclerView.Adapter{
             tvPrice = itemView.findViewById(R.id.tv_price);
             tvVanID = itemView.findViewById(R.id.tv_van_id);
             cvReserv = itemView.findViewById(R.id.cv_reserv);
+            tvStatus = itemView.findViewById(R.id.tv_status);
         }
     }
 }

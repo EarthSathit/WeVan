@@ -1,12 +1,19 @@
 package th.ac.kru.wevan;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -45,6 +52,7 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
 
+        checkConnection();
         initialValue();
     }
 
@@ -74,6 +82,26 @@ public class MainActivity3 extends AppCompatActivity {
 
     public void checkInput() {
         phone = edtPhone.getText().toString();
+        /*edtPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("ff", "beforeTextChanged: ");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("gg", "onTextChanged: ");
+                if (phone.length() >= 13) {
+                    edtPhone.setFilters(new InputFilter[] {new InputFilter.LengthFilter(13)});
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("jjj", "afterTextChanged: ");
+            }
+        });*/
+
         first_name = edtFirstName.getText().toString();
         last_name = edtLastName.getText().toString();
         email = edtEmail.getText().toString();
@@ -134,17 +162,13 @@ public class MainActivity3 extends AppCompatActivity {
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
                 builder.setIcon(R.drawable.ic_info);
-                builder.setTitle("Information!");
+                builder.setTitle("แจ้งเตือน");
                 builder.setMessage(msg_alert);
                 builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        /*Intent openApp = new Intent(MainActivity3.this, MainActivity.class);
-                        startActivity(openApp);*/
-                        if(!response.equals("success")) {
-                            Intent intent = new Intent(MainActivity3.this, LoginActivity.class);
-                            startActivity(intent);
-                        }
+                        Intent intent = new Intent(MainActivity3.this, LoginActivity.class);
+                        startActivity(intent);
                         dialogInterface.dismiss();
                     }
                 });
@@ -156,7 +180,7 @@ public class MainActivity3 extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
                 builder.setIcon(R.drawable.ic_info);
-                builder.setTitle("Information!");
+                builder.setTitle("แจ้งเตือน");
                 builder.setMessage("มีข้อมูลผู้ใช้งานอยู่แล้ว กรุณาเเข้าสู่ระบบ");
                 builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                     @Override
@@ -198,5 +222,38 @@ public class MainActivity3 extends AppCompatActivity {
             }
         };
         requestQueue.add(request);
+    }
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void checkConnection(){
+        if(isOnline()){
+            // Toast.makeText(LoginActivity.this, "You are connected to Internet", Toast.LENGTH_SHORT).show();
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
+            builder.setIcon(R.drawable.ic_info);
+            builder.setTitle("แจ้งเตือน");
+            builder.setMessage("กรุณาเชื่อมต่ออินเทอร์เน็ต");
+            builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                        /*Intent openApp = new Intent(MainActivity3.this, MainActivity.class);
+                        startActivity(openApp);*/
+                    startActivity(new Intent(
+                            Settings.ACTION_SETTINGS));
+                    dialogInterface.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
     }
 }

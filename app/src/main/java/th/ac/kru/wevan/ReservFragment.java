@@ -152,9 +152,9 @@ public class ReservFragment extends Fragment {
 
         HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
         file_maps.put("1", R.drawable.p_2);
-        // file_maps.put("2",R.drawable.p_6);
-        //  file_maps.put("3",R.drawable.p_8);
-
+        file_maps.put("2",R.drawable.p_6);
+        file_maps.put("3",R.drawable.p_8);
+        file_maps.put("3",R.drawable.p_10);
 
         for(String name : file_maps.keySet()){
             TextSliderView textSliderView = new TextSliderView(getContext());
@@ -228,7 +228,7 @@ public class ReservFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
         )

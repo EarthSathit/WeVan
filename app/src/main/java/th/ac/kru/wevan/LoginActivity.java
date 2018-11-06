@@ -3,11 +3,15 @@ package th.ac.kru.wevan;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -36,6 +40,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,7 +62,40 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.next_main);
 
+        checkConnection();
         initialValue();
+    }
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public void checkConnection(){
+        if(isOnline()){
+            // Toast.makeText(LoginActivity.this, "You are connected to Internet", Toast.LENGTH_SHORT).show();
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+            builder.setIcon(R.drawable.ic_info);
+            builder.setTitle("แจ้งเตือน");
+            builder.setMessage("กรุณาเชื่อมต่ออินเทอร์เน็ต");
+            builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                        /*Intent openApp = new Intent(MainActivity3.this, MainActivity.class);
+                        startActivity(openApp);*/
+                    startActivity(new Intent(
+                            Settings.ACTION_SETTINGS));
+                    dialogInterface.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
     }
 
     public void initialValue(){
@@ -68,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                checkConnection();
                 phone = edtPhone.getText().toString();
                 if (TextUtils.isEmpty(phone)){
                     edtPhone.setError("กรุณากรอกเบอร์โทรศัพท์");
@@ -124,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                         //showDialogSuccess("Information", "เข้าสู่ระบบสำเร็จ");
                     }
                 } catch (JSONException e) {
-                    showDialogFailed("Warning!", "เข้าสู่ระบบไม่สำเร็จ กรุณาเข้าสู่ระบบอีกครั้ง");
+                    showDialogFailed("แจ้งเตือน", "เข้าสู่ระบบไม่สำเร็จ กรุณาเข้าสู่ระบบอีกครั้ง");
                 }
             }
         }, new Response.ErrorListener() {
@@ -203,7 +242,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setIcon(R.drawable.van1)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent openApp = new Intent(LoginActivity.this, MainActivity.class);
@@ -222,10 +261,10 @@ public class LoginActivity extends AppCompatActivity {
     public void showDialogFailed(String title, String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
         builder
-                .setIcon(R.drawable.van1)
+                .setIcon(R.drawable.ic_info)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();

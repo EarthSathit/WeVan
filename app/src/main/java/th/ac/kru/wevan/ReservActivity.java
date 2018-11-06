@@ -22,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,7 +63,8 @@ import Data.MethodData;
 import Data.SeatData;
 import android.support.v4.app.Fragment;
 
-public class ReservActivity extends AppCompatActivity implements ReservFragment.OnFragmentInteractionListener {
+public class ReservActivity extends AppCompatActivity implements ReservFragment.OnFragmentInteractionListener,
+        SettingFragment.OnFragmentInteractionListener{
 
     TextView tvSubmit, tvCancel, tvReservPrice;
     Spinner spinSeat, spinMethod;
@@ -84,6 +86,8 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
     private int shPromotion_int;
 
     private int seat_available;
+
+    String strDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,7 +199,7 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
                 calendar.set(year, month, day);
 
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                String strDate = format.format(calendar.getTime());
+                strDate = format.format(calendar.getTime());
 
                /* if (idYear < 10){
                     strYear = "000" + String.valueOf(idYear);
@@ -217,9 +221,8 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
                 Log.d("pm_method", String.valueOf(valueMethod));
                 Log.d("seat: ", String.valueOf(iSeat));
                 Log.d("price: ", String.valueOf(pr));*/
+                alertDialogWarning("คุณต้องการจองที่นั่งหรือไม่?");
 
-                saveReserv(reID, round_id, phone, currentDate, strDate, String.valueOf(valueMethod),
-                        String.valueOf(iSeat), String.valueOf(pr));
             }
         });
     }
@@ -252,7 +255,7 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
             @Override
             public void onResponse(String response) {
                 Log.d("onResponse", response);
-                alertDialog("บันทึกการจองสำเร็จ");
+                alertDialogSuccess("บันทึกการจองสำเร็จ");
             }
         }, new Response.ErrorListener() {
             @Override
@@ -299,10 +302,10 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
     public void alertDialog(String msg){
         AlertDialog.Builder builder = new AlertDialog.Builder(ReservActivity.this);
         builder
-                .setIcon(R.drawable.van1)
-                .setTitle("Information")
+                .setIcon(R.drawable.ic_info)
+                .setTitle("แจ้งเตือน")
                 .setMessage(msg)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
@@ -311,6 +314,54 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public void alertDialogSuccess(String msg){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ReservActivity.this);
+        builder
+                .setIcon(R.drawable.ic_info)
+                .setTitle("แจ้งเตือน")
+                .setMessage(msg)
+                .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                      dialogInterface.dismiss();
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void alertDialogWarning(String msg){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ReservActivity.this);
+        builder
+                .setIcon(R.drawable.ic_info)
+                .setTitle("แจ้งเตือน")
+                .setMessage(msg)
+                .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        saveReserv(reID, round_id, phone, currentDate, strDate, String.valueOf(valueMethod),
+                                String.valueOf(iSeat), String.valueOf(pr));
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 
     public void toast(String msg){

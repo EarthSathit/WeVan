@@ -166,8 +166,8 @@ public class PromotionFragment extends Fragment {
                                 if(Integer.parseInt(current.getSeat()) >= 10){
                                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                                     builder
-                                            .setIcon(R.drawable.van1)
-                                            .setTitle("Warning")
+                                            .setIcon(R.drawable.ic_info)
+                                            .setTitle("แจ้งเตือน")
                                             .setMessage("ยืนยันการรับสิทธิ")
                                             .setPositiveButton("รับสิทธิ", new DialogInterface.OnClickListener() {
                                                 @Override
@@ -193,9 +193,9 @@ public class PromotionFragment extends Fragment {
                                 }else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                                     builder
-                                            .setIcon(R.drawable.van1)
-                                            .setTitle("Warning")
-                                            .setMessage("ไม่สามารถใช้สิทธิได้ เนื่องจากจำนวนที่ใช้บริการยังไม่ครบกำหนด")
+                                            .setIcon(R.drawable.ic_info)
+                                            .setTitle("แจ้งเตือน")
+                                            .setMessage("ไม่สามารถใช้สิทธิได้ เนื่องจากจำนวนครั้งที่ใช้บริการยังไม่ครบตามกำหนด")
                                             .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {

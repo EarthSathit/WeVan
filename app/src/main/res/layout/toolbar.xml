@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="หนุมานทัวร์สยาม จำกัด"
+        android:text="มหาวิทยาลัยราชภัฏกาญจนบุรี"
         android:textColor="#fff"
         android:textSize="@dimen/text"
 

@@ -161,13 +161,13 @@ public class ProfileFragment extends Fragment {
         tvUsername = getActivity().findViewById(R.id.tv_username);
         tvEmail = getActivity().findViewById(R.id.tv_email);
         tvPhone = getActivity().findViewById(R.id.tv_phone);
-        tvPassword = getActivity().findViewById(R.id.tv_password);
-        tvType = getActivity().findViewById(R.id.tv_type);
+        /*tvPassword = getActivity().findViewById(R.id.tv_password);
+        tvType = getActivity().findViewById(R.id.tv_type);*/
 
         tvUsername.setText(shName);
         tvEmail.setText(shEmail);
         tvPhone.setText(shPhone);
-        tvType.setText(strType);
+        //tvType.setText(strType);
     }
 
     public void showToast(String msg){
@@ -176,8 +176,8 @@ public class ProfileFragment extends Fragment {
 
     public void confirmLogout(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setIcon(R.drawable.van1);
-        builder.setTitle("Warning");
+        builder.setIcon(R.drawable.ic_info);
+        builder.setTitle("แจ้งเตือน");
         builder.setMessage("ต้องการออกจากระบบหรือไม่");
         builder.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
             @Override

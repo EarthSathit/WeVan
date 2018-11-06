@@ -108,8 +108,8 @@ public class ConfirmPayment extends AppCompatActivity implements View.OnClickLis
             if(imageView.getDrawable() == null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder
-                        .setIcon(R.drawable.van1)
-                        .setTitle("Warning")
+                        .setIcon(R.drawable.ic_info)
+                        .setTitle("แจ้งเตือน")
                         .setMessage("กรุณาเลือกรูปก่อนกดยืนยัน")
                         .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                             @Override
@@ -131,7 +131,7 @@ public class ConfirmPayment extends AppCompatActivity implements View.OnClickLis
             filePath = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                tvPath.setText("Path: ". concat(getPath(filePath)));
+                tvPath.setText("แนบสลิป : ". concat(getPath(filePath)));
                 imageView.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();

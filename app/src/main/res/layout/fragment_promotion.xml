@@ -46,7 +46,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Promotion"
+                            android:text="โปรโมชัน"
                             android:textColor="@color/categary"
                             android:textSize="20dp" />
 
@@ -78,9 +78,9 @@
                             android:background="#0000"
                             android:gravity="center"
                             android:padding="5dp"
-                            android:text="เดินทางครบ 10 ครั้ง เดินทางฟรี 1 ครั้ง"
-                            android:textColor="#a2a1b8"
-                            android:textSize="16dp" />
+                            android:text="เดินทางครบ 10 ครั้ง ฟรี 1 ครั้ง"
+                            android:textColor="@color/cityname"
+                            android:textSize="18dp" />
 
 
                     </LinearLayout>

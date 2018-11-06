@@ -91,8 +91,8 @@ public class DataReservAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder
-                        .setIcon(R.drawable.van1)
-                        .setTitle("Warning")
+                        .setIcon(R.drawable.ic_info)
+                        .setTitle("แจ้งเตือน")
                         .setMessage("ยืนยันการชำระเงิน")
                         .setPositiveButton("ชำระเงิน", new DialogInterface.OnClickListener() {
                             @Override
@@ -122,8 +122,8 @@ public class DataReservAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder
-                        .setIcon(R.drawable.van1)
-                        .setTitle("Warning")
+                        .setIcon(R.drawable.ic_info)
+                        .setTitle("แจ้งเตือน")
                         .setMessage("คุณต้องการยกเลิกการจองหรือไม่?")
                         .setPositiveButton("ยกเลิก", new DialogInterface.OnClickListener() {
                             @Override
