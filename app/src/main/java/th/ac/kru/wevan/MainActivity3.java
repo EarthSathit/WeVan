@@ -16,8 +16,11 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
@@ -45,7 +48,11 @@ public class MainActivity3 extends AppCompatActivity {
     private ImageView back, signIn;
     private EditText edtPhone, edtFirstName, edtLastName, edtEmail;
 
-    private String phone, first_name, last_name, email;
+    private String phone, initial, first_name, last_name, email;
+
+    private Spinner spinInitial;
+
+    private String[] arrInitial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,25 @@ public class MainActivity3 extends AppCompatActivity {
         edtFirstName = (EditText)findViewById(R.id.edtFirstName);
         edtLastName = (EditText)findViewById(R.id.edtLastName);
         edtEmail = (EditText)findViewById(R.id.edtEmail);
+        spinInitial = (Spinner)findViewById(R.id.initial_spinner);
+
+        arrInitial = new String[] {"นาย", "นาง", "นางสาว"};
+        ArrayAdapter<String> array = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, arrInitial);
+        spinInitial.setAdapter(array);
+
+        spinInitial.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                int init = i + 1;
+                initial = String.valueOf(init);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                initial = "1";
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,6 +239,7 @@ public class MainActivity3 extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("cmd", "insert");
+                params.put("initial_id", initial);
                 params.put("phone", phone);
                 params.put("name", first_name);
                 params.put("lastname", last_name);
