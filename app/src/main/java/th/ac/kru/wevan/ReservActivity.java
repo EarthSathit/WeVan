@@ -94,6 +94,10 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv);
 
+        SharedPreferences mPreference = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        shPromotion = mPreference.getString("SESSION_PROMOTION","");
+
         spinSeat = (Spinner) findViewById(R.id.spin_seat);
         spinMethod = (Spinner) findViewById(R.id.spin_method);
 
@@ -103,15 +107,28 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
             String ii = String.valueOf(i);
             seat_list.add(ii);
         }
-        //seat = new String[] {"1", "2" , "3", "4", "5", "6", "7", "8", "9" , "10", "11", "12"};
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, seat_list);
-        spinSeat.setAdapter(arrayAdapter);
 
-        methodArr = new String[] {"ชำระเงินด้วยตนเอง", "ชำระเงินด้วยการโอน"};
-        ArrayAdapter<String> array = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, methodArr);
-        spinMethod.setAdapter(array);
+        shPromotion_int = Integer.parseInt(shPromotion);
+        if(shPromotion_int == 1){
+            seat = new String[] {"1"};
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, seat);
+            spinSeat.setAdapter(spinnerArrayAdapter);
+
+            methodArr = new String[] {"ส่วนลดจากโปรโมชัน"};
+            ArrayAdapter<String> array = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_list_item_1, methodArr);
+            spinMethod.setAdapter(array);
+        } else {
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_list_item_1, seat_list);
+            spinSeat.setAdapter(arrayAdapter);
+
+            methodArr = new String[] {"ชำระเงินด้วยตนเอง", "ชำระเงินด้วยการโอน"};
+            ArrayAdapter<String> array = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_list_item_1, methodArr);
+            spinMethod.setAdapter(array);
+        }
 
         initialValue();
     }
@@ -139,13 +156,11 @@ public class ReservActivity extends AppCompatActivity implements ReservFragment.
 
         currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
-        SharedPreferences mPreference = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        shPromotion = mPreference.getString("SESSION_PROMOTION","");
+
         spinSeat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d("shPromotion", shPromotion);
+                //Log.d("shPromotion", shPromotion);
                 shPromotion_int = Integer.parseInt(shPromotion);
                 iSeat = i + 1;
                 if (shPromotion_int == 1){

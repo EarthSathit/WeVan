@@ -179,14 +179,14 @@ public class ProfileFragment extends Fragment {
         builder.setIcon(R.drawable.ic_info);
         builder.setTitle("แจ้งเตือน");
         builder.setMessage("ต้องการออกจากระบบหรือไม่");
-        builder.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 cancelSession();
             }
         });
 
-        builder.setNegativeButton("ไม่", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

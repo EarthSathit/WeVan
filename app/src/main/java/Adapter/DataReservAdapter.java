@@ -106,7 +106,7 @@ public class DataReservAdapter extends RecyclerView.Adapter{
                                 //viewHolder.tvReserv.setEnabled(false);
                             }
                         })
-                        .setNegativeButton("ไม่", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Log.d("Patment Reserv", "cancel payment");
@@ -125,7 +125,7 @@ public class DataReservAdapter extends RecyclerView.Adapter{
                         .setIcon(R.drawable.ic_info)
                         .setTitle("แจ้งเตือน")
                         .setMessage("คุณต้องการยกเลิกการจองหรือไม่?")
-                        .setPositiveButton("ยกเลิก", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Log.d("Cancel Reserv", reservData.getId_card());
@@ -134,7 +134,7 @@ public class DataReservAdapter extends RecyclerView.Adapter{
                                 //viewHolder.tvReserv.setEnabled(false);
                             }
                         })
-                        .setNegativeButton("ไม่", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Log.d("Cancel Reserv", "Cancel");

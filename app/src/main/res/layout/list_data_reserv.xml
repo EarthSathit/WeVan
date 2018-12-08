@@ -1,198 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="7px"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cv_reserv"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="7px"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_reserv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/aaa"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/aaa"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_reserv" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_reserv" />
+
+                        <customfonts.MyTextView_Roboto_Light
+                            android:id="@+id/myTextView_Roboto_Light2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:text="วันที่เดินทาง"
+                            android:textColor="@color/background"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
 
                     <customfonts.MyTextView_Roboto_Light
-                        android:id="@+id/myTextView_Roboto_Light2"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_travel_date"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="25dp"
                         android:layout_weight="1"
-                        android:text="วันที่เดินทาง"
+                        android:padding="7dp"
+                        android:text="12/05/2561"
                         android:textColor="@color/background"
-                        android:textSize="16sp" />
-
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
-                <customfonts.MyTextView_Roboto_Light
-                    android:id="@+id/tv_travel_date"
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#dad8d8" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_weight="1"
-                    android:padding="7dp"
-                    android:text="12/05/2561"
-                    android:textColor="@color/background"
-                    android:textSize="14sp" />
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp">
 
-            </LinearLayout>
+                    <customfonts.MyTextView_Roboto_Light
+                        android:id="@+id/tv_route"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:padding="5dp"
+                        android:text="กาญจนบุรี-หมอชิต"
+                        android:textColor="@color/cardview_dark_background" />
 
-            <View
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#dad8d8" />
+                    <customfonts.MyTextView_Roboto_Light
+                        android:id="@+id/tv_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="08.00-09.00 น."
+                        android:textColor="@color/cardview_dark_background" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp">
-
-                <customfonts.MyTextView_Roboto_Light
-                    android:id="@+id/tv_route"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:padding="5dp"
-                    android:text="กาญจนบุรี-หมอชิต"
-                    android:textColor="@color/cardview_dark_background" />
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp">
 
-                <customfonts.MyTextView_Roboto_Light
-                    android:id="@+id/tv_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="08.00-09.00 น."
-                    android:textColor="@color/cardview_dark_background" />
-            </LinearLayout>
+                    <customfonts.MyTextView_Roboto_Light
+                        android:id="@+id/tv_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:padding="5dp"
+                        android:textColor="@color/cardview_dark_background" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp">
+                    <customfonts.MyTextView_Roboto_Light
+                        android:id="@+id/tv_van_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="กก12343"
+                        android:textColor="@color/cardview_dark_background" />
+                </LinearLayout>
 
-                <customfonts.MyTextView_Roboto_Light
-                    android:id="@+id/tv_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left|center"
-                    android:padding="5dp"
-                    android:text="140.-"
-                    android:textColor="@color/cardview_dark_background" />
-
-                <customfonts.MyTextView_Roboto_Light
-                    android:id="@+id/tv_van_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="กก12343"
-                    android:textColor="@color/cardview_dark_background" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp">
-
-                <customfonts.MyTextView_Roboto_Light
-                    android:id="@+id/tv_status"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left|center"
-                    android:padding="5dp"
-                    android:text="สถานะ :"
-                    android:textColor="@color/cardview_dark_background" />
-
-                <customfonts.MyTextView_Roboto_Light
-                    android:id="@+id/tv_show_status"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="ยังไมไ่ด้ชำระเงิน"
-                    android:textColor="@color/cardview_dark_background" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp">
-
-
-                <customfonts.MyTextView
-                    android:id="@+id/tv_payment"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="3dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:gravity="center"
-                    android:paddingBottom="6dp"
-                    android:paddingLeft="19dp"
-                    android:paddingRight="19dp"
-                    android:paddingTop="6dp"
-                    android:text="ชำระเงิน"
-                    android:textColor="@color/background"
-                    android:textSize="@dimen/text" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp">
 
-                <customfonts.MyTextView
-                    android:id="@+id/tv_cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="3dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button2"
-                    android:gravity="center"
-                    android:paddingBottom="6dp"
-                    android:paddingLeft="19dp"
-                    android:paddingRight="19dp"
-                    android:paddingTop="6dp"
-                    android:text="ยกเลิก"
-                    android:textColor="#fff"
-                    android:textSize="@dimen/text" />
+                    <customfonts.MyTextView_Roboto_Light
+                        android:id="@+id/tv_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:padding="5dp"
+                        android:text="สถานะ :"
+                        android:textColor="@color/cardview_dark_background" />
+
+                    <customfonts.MyTextView_Roboto_Light
+                        android:id="@+id/tv_show_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="ยังไมไ่ด้ชำระเงิน"
+                        android:textColor="@color/cardview_dark_background" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp">
+
+
+                    <customfonts.MyTextView
+                        android:id="@+id/tv_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:gravity="center"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="19dp"
+                        android:paddingRight="19dp"
+                        android:paddingTop="6dp"
+                        android:text="ชำระเงิน"
+                        android:textColor="@color/background"
+                        android:textSize="@dimen/text" />
+
+                    <customfonts.MyTextView
+                        android:id="@+id/tv_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button2"
+                        android:gravity="center"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="19dp"
+                        android:paddingRight="19dp"
+                        android:paddingTop="6dp"
+                        android:text="ยกเลิก"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/text" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</RelativeLayout>
